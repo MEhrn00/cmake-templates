@@ -3,10 +3,8 @@
 Basic CMake templates for starting various C/C++ projects.
 
 ## Templates
-- [templates/executable/c](templates/executable/c) - Basic template for creating standalone executable programs in C
-- [templates/executable/cpp](templates/executable/cpp) - Basic template for creating standalone executable programs in C++
-- [templates/library/c](templates/library/c) - Basic template for creating static or shared libraries in C
-- [templates/library/cpp](templates/library/cpp) - Basic template for creating static or shared libraries in C++
+- [templates/executable](templates/executable) - Basic template for creating standalone executable programs
+- [templates/library](templates/library) - Basic template for creating static or shared libraries
 
 ## CMake Modules
 Each of the templates will consume items from the [cmakemodules/](cmakemodules) directory. These are
