@@ -1,0 +1,3 @@
+[submodule "submodules/dots"]
+	path = submodules/dots
+	url = https://github.com/MEhrn00/dots
