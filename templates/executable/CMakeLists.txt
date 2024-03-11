@@ -2,7 +2,8 @@
 cmake_minimum_required(VERSION 3.24)
 
 # Set the project metadata
-project(cmake-executable-template
+project(
+  CMakeExecutableTemplate
   VERSION 0.1.0
   DESCRIPTION "CMake template for building basic C/C++ executables"
   HOMEPAGE_URL https://github.com/MEhrn00/cmake-templates
@@ -13,28 +14,22 @@ project(cmake-executable-template
 # Create a compile_commands.json file if supported
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Create a 'TARGET' variable for the main project executable target
-set(TARGET cmake-executable-template)
+# This helps support IDEs
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# Documentation
-include(cmake/Doxygen.cmake)
-
-# Define the executable target
-add_executable(${TARGET}
-  src/main.cpp
-  src/module.cpp
-)
-
-# Set the C/C++ standard to 23
-target_compile_features(${TARGET} PRIVATE cxx_std_23)
-#target_compile_features(${TARGET} PRIVATE c_std_23)
-
-# Set the include directory to the top level of the sources
-target_include_directories(${TARGET} PRIVATE src)
-
-# Compiler warnings
-include(cmake/CompilerWarnings.cmake)
-set_compiler_warnings(${TARGET})
+# Add `cmake/` to the module path
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 # Static analyzers
-include(cmake/StaticAnalyzers.cmake)
+include(StaticAnalyzers)
+
+# Documentation
+include(Documentation)
+
+# TODO: Package management with CPM
+# TODO: Package management with Conan
+
+# Add executable sources and target
+add_subdirectory(src)
+
+# TODO: Test integration
